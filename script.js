@@ -54,6 +54,7 @@ function newQuote() {
 }
 
 // Get Quotes from API
+// Cors Anywhere to help against Cors errors
 async function getQuotes() {
     loading();
     const apiUrl = 'https://zenquotes.io/api/quotes';
