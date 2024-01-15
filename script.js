@@ -1,6 +1,5 @@
 let apiQuotes = [];
-let apiQuotesOfDay = [];
-let apiRandomQuotes = [];
+
 
 const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.getElementById('quote');
