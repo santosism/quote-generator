@@ -57,15 +57,20 @@ function newQuote() {
 // Get Quotes from API
 async function getQuotes() {
     loading();
-    const apiUrl = 'http://localhost:3000/getQuotes'; // Use your local server
+    const apiUrl = 'http://localhost:3000/getQuotes'; // Update with your actual server endpoint
     try {
         const response = await axios.get(apiUrl);
         const newData = response.data;
-        apiQuotes = newData.map(quote => ({
-            text: quote.q,
-            author: quote.a,
-        }));
-        newQuote();
+        
+        if (Array.isArray(newData)) {
+            apiQuotes = newData.map((quote) => ({
+                text: quote.q,
+                author: quote.a,
+            }));
+            newQuote();
+        } else {
+            throw new Error('Invalid response format');
+        }
     } catch (err) {
         alert(err);
         // Catch error here

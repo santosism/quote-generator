@@ -14,7 +14,7 @@ app.use(cors(corsOptions));
 
 app.get('/getQuotes', async (_, res) => {
     try {
-        const apiUrl = 'https://zenquotes.io/api/quotes';
+        const apiUrl = 'http://localhost:3000/getQuotes'; // Use your local server
         const response = await axios.get(apiUrl);
         const newData = response.data;
         res.json(newData);
