@@ -1,4 +1,6 @@
 let apiQuotes = [];
+let apiQuotesOfDay = [];
+let apiRandomQuotes = [];
 
 const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.getElementById('quote');
@@ -6,6 +8,20 @@ const authorText = document.getElementById('author');
 const twitterBtn= document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
+
+const quoteContainerOfDay = document.getElementById('quote-container-day');
+const quoteTextOfDay = document.getElementById('quote-day');
+const authorTextOfDay = document.getElementById('author-day');
+const twitterBtnOfDay = document.getElementById('twitter-day');
+const newQuoteBtnOfDay = document.getElementById('new-quote-day');
+const loaderOfDay = document.getElementById('loader-day');
+
+const quoteContainerRandom = document.getElementById('quote-container-random');
+const quoteTextRandom = document.getElementById('quote-random');
+const authorTextRandom = document.getElementById('author-random');
+const twitterBtnRandom = document.getElementById('twitter-random');
+const newQuoteBtnRandom = document.getElementById('new-quote-random');
+const loaderRandom = document.getElementById('loader-random');
 
 
 
