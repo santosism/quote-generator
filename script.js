@@ -8,8 +8,6 @@ const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
 
-console.log(imageUrls);
-
 
 // Show loading
 
