@@ -56,25 +56,24 @@ function newQuote() {
 // Get Quotes from API
 async function getQuotes() {
     loading();
-    const apiUrl = 'http://localhost:3000/getQuotes'; // Update with your actual server endpoint
+    const apiUrl = 'https://zenquotes.io/api/quotes';
+    const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS Anywhere proxy
+    const fullUrl = corsAnywhereUrl + apiUrl;
+
     try {
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(fullUrl);
         const newData = response.data;
-        
-        if (Array.isArray(newData)) {
-            apiQuotes = newData.map((quote) => ({
-                text: quote.q,
-                author: quote.a,
-            }));
-            newQuote();
-        } else {
-            throw new Error('Invalid response format');
-        }
+        apiQuotes = newData.map(quote => ({
+            text: quote.q,
+            author: quote.a,
+        }));
+        newQuote();
     } catch (err) {
         alert(err);
         // Catch error here
     }
 }
+
 
 function tweetQuote(){
     const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`; 
