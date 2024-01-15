@@ -9,19 +9,6 @@ const twitterBtn= document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
-const quoteContainerOfDay = document.getElementById('quote-container-day');
-const quoteTextOfDay = document.getElementById('quote-day');
-const authorTextOfDay = document.getElementById('author-day');
-const twitterBtnOfDay = document.getElementById('twitter-day');
-const newQuoteBtnOfDay = document.getElementById('new-quote-day');
-const loaderOfDay = document.getElementById('loader-day');
-
-const quoteContainerRandom = document.getElementById('quote-container-random');
-const quoteTextRandom = document.getElementById('quote-random');
-const authorTextRandom = document.getElementById('author-random');
-const twitterBtnRandom = document.getElementById('twitter-random');
-const newQuoteBtnRandom = document.getElementById('new-quote-random');
-const loaderRandom = document.getElementById('loader-random');
 
 
 
@@ -70,7 +57,7 @@ function newQuote() {
 // Get Quotes from API
 async function getQuotes() {
     loading();
-    const apiUrl = 'https://zenquotes.io/api/quotes';
+    const apiUrl = 'http://localhost:3000/getQuotes'; // Use your local server
     try {
         const response = await axios.get(apiUrl);
         const newData = response.data;
@@ -80,7 +67,7 @@ async function getQuotes() {
         }));
         newQuote();
     } catch (err) {
-        alert(err)
+        alert(err);
         // Catch error here
     }
 }
