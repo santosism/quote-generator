@@ -6,32 +6,10 @@ const authorText = document.getElementById('author');
 const twitterBtn= document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
-const backgroundContainer = document.getElementById('background');
 
-
-
-const imageUrls = [
-    'https://blogs.loc.gov/families/files/2020/11/Haiku-snow-mountain.jpg',
-    'https://fydn.imgix.net/m%2Fgen%2Fcanvas-std-landscape-p1%2F83dd2955-2d00-46b7-83e4-e5f2487d4c60.jpg?auto=format%2Ccompress&q=75',
-    'https://www.kennedy-center.org/globalassets/education/resources-for-educators/classroom-resources/artsedge/lesson/3-5/you-too-can-haiku/youtoocanhaiku.jpg'
-];
 
 console.log(imageUrls);
 
-function getRandomImageUrl() {
-    const randomIndex = Math.floor(Math.random() * imageUrls.length);
-    return imageUrls[randomIndex];
-}
-async function getRandomImage() {
-    try {
-        const imageUrl = getRandomImageUrl();
-        const response = await axios.get(imageUrl, { responseType: 'blob' });
-        const imageUrlObject = URL.createObjectURL(response.data);
-        backgroundContainer.style.backgroundImage = `url(${imageUrlObject})`;
-    } catch (err) {
-        console.error('Error loading image:', err);
-    }
-}
 
 // Show loading
 
@@ -105,22 +83,3 @@ twitterBtn.addEventListener('click', tweetQuote);
 
 // On Load
 getQuotes();
-getRandomImage();
-
-
-
-// Quote function for local quotes script
-
-// function newQuote() {
-//     // Pick a random quote from localQuotes array
-//     const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-//     // Check if Author field is blank and replace it with "Unknown"
-//     if (!quote.author) {
-//         authorText.textContent = 'Unknown'; 
-        
-//     } else {
-//         authorText.textContent = quote.author; 
-
-//     }
-//     quoteText.textContent = quote.text; 
-// }
