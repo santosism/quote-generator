@@ -11,6 +11,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get('/', (_, res) => {
+    res.send('Hello, this is the root path!');
+});
+
 // Your other route handlers go here
 
 app.get('/getQuotes', async (_, res) => {
